@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<thing:thing-descriptions bindingId="helios" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:thing="http://eclipse.org/smarthome/schemas/thing-description/v1.0.0"
+	xsi:schemaLocation="http://eclipse.org/smarthome/schemas/thing-description/v1.0.0 http://eclipse.org/smarthome/schemas/thing-description-1.0.0.xsd">
+
+	<thing-type id="ipvario27">
+		<label>Helios IP Vario</label>
+		<description>Helios IP Vario Door Station / Intercom with Firmware v2.7</description>
+
+		<channels>
+			<channel id="keypressed" typeId="keypressed" />
+			<channel id="keypressedstamp" typeId="keypressedstamp" />
+			<channel id="callstate" typeId="callstate" />
+			<channel id="calldirection" typeId="calldirection" />
+			<channel id="callstatestamp" typeId="callstatestamp" />
+			<channel id="card" typeId="card" />
+			<channel id="cardvalid" typeId="cardvalid" />
+			<channel id="cardstamp" typeId="cardstamp" />
+			<channel id="code" typeId="code" />
+			<channel id="codevalid" typeId="codevalid" />
+			<channel id="codestamp" typeId="codestamp" />
+			<channel id="devicestate" typeId="devicestate" />
+			<channel id="devicestatestamp" typeId="devicestatestamp" />
+		</channels>
+
+		<config-description>
+			<parameter name="ipAddress" type="text" required="true">
+				<label>Network Address</label>
+				<description>Network address of the Helios IP device</description>
+			</parameter>
+			<parameter name="openHABipAddress" type="text" required="true">
+				<label>Network Address</label>
+				<description>Network address of the openHAB host</description>
+			</parameter>
+			<parameter name="openHABportNumber" type="integer" required="true">
+				<label>Port Number</label>
+				<description>TCP port number the notification web service will be registered on</description>
+			</parameter>
+		</config-description>
+
+	</thing-type>
+
+	<channel-type id="keypressedstamp">
+		<item-type>DateTime</item-type>
+		<label>Time stamp a key was pressed</label>
+		<description>Event date and time in CCYY-MM-DDThh:mm:ss format</description>
+	</channel-type>
+	<channel-type id="keypressed">
+		<item-type>String</item-type>
+		<label>Key Pressed</label>
+		<description>Code of the key pressed</description>
+	</channel-type>
+	<channel-type id="callstate">
+		<item-type>String</item-type>
+		<label>Call State</label>
+		<description>State of the currently made call</description>
+	</channel-type>
+	<channel-type id="calldirection" advanced="true">
+		<item-type>String</item-type>
+		<label>Call Direction</label>
+		<description>Direction of the currently made call</description>
+	</channel-type>
+	<channel-type id="callstatestamp">
+		<item-type>DateTime</item-type>
+		<label>Time stamp the state of the call changed</label>
+		<description>Event date and time in CCYY-MM-DDThh:mm:ss format</description>
+	</channel-type>
+	<channel-type id="card">
+		<item-type>String</item-type>
+		<label>Card ID</label>
+		<description>Detected card identification with a 24-64-bit number in the hexadecimal format</description>
+	</channel-type>
+	<channel-type id="cardvalid" advanced="true">
+		<item-type>String</item-type>
+		<label>Card Valid Flag</label>
+		<description>If the detected card is valid, the parameter value is true. If not, the parameter is set to false</description>
+	</channel-type>
+	<channel-type id="cardstamp">
+		<item-type>DateTime</item-type>
+		<label>Time stamp the card was detected</label>
+		<description>Event date and time in CCYY-MM-DDThh:mm:ss format</description>
+	</channel-type>
+	<channel-type id="code">
+		<item-type>String</item-type>
+		<label>Code Entered</label>
+		<description>Numerical code entered, e.g. 1234.</description>
+	</channel-type>
+	<channel-type id="codevalid" advanced="true">
+		<item-type>String</item-type>
+		<label>Code Valid Flag</label>
+		<description>If the entered code is valid, the parameter value is true. If not, the parameter is set to false</description>
+	</channel-type>
+	<channel-type id="codestamp">
+		<item-type>DateTime</item-type>
+		<label>Time stamp a code was entered</label>
+		<description>Event date and time in CCYY-MM-DDThh:mm:ss format</description>
+	</channel-type>
+	<channel-type id="devicestate">
+		<item-type>String</item-type>
+		<label>Device State</label>
+		<description>State of the Helios device</description>
+	</channel-type>
+	<channel-type id="devicestatestamp">
+		<item-type>DateTime</item-type>
+		<label>Time stamp of the state of the device</label>
+		<description>Event date and time in CCYY-MM-DDThh:mm:ss format</description>
+	</channel-type>
+
+</thing:thing-descriptions>
