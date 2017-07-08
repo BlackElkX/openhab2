@@ -676,11 +676,7 @@ public class KeContactHandler extends BaseThingHandler {
 
     @Override
     public void handleCommand(ChannelUID channelUID, Command command) {
-        if (command instanceof RefreshType) {
-            // Refresh all channels by scheduling a single run of the polling runnable
-            scheduler.schedule(pollingRunnable, 0, TimeUnit.SECONDS);
-        } else {
-
+        if (!(command instanceof RefreshType)) {
             switch (channelUID.getId()) {
                 case CHANNEL_MAX_PRESET_CURRENT: {
                     if (command instanceof DecimalType) {
